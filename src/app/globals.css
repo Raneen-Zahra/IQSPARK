@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-black: #0a0c0a;
+  --color-surface: #14170f;
+  --color-surface-raised: #1c2117;
+  --color-border: #2a3122;
+
+  --color-green: #22c55e;
+  --color-green-dim: #14532d;
+  --color-yellow: #facc15;
+  --color-yellow-dim: #7a5f0a;
+  --color-red: #ef4444;
+  --color-red-dim: #5c1f1f;
+
+  --color-text: #f4f4f0;
+  --color-muted: #8a8f87;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@theme inline {
+  --color-black: var(--color-black);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-border: var(--color-border);
+  --color-green: var(--color-green);
+  --color-green-dim: var(--color-green-dim);
+  --color-yellow: var(--color-yellow);
+  --color-yellow-dim: var(--color-yellow-dim);
+  --color-red: var(--color-red);
+  --color-red-dim: var(--color-red-dim);
+  --color-text: var(--color-text);
+  --color-muted: var(--color-muted);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-black);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.glow-yellow {
+  filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.55));
+}
