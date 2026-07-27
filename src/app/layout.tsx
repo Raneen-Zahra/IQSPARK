@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "IQ Spark — Brain Puzzles & Intelligence Tests",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

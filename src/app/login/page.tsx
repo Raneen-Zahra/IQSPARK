@@ -4,16 +4,24 @@ import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Logo from '@/components/Logo';
+import { useAuth } from '@/context/AuthContext';
 
 export default function LoginPage() {
   const router = useRouter();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    // Placeholder: real auth wiring comes later.
-    router.push('/home');
+    setError('');
+    try {
+      login(email, password);
+      router.push('/home');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong.');
+    }
   }
 
   return (
@@ -51,6 +59,8 @@ export default function LoginPage() {
               placeholder="••••••••"
             />
           </label>
+
+          {error && <p className="text-sm text-[var(--color-red)]">{error}</p>}
 
           <button
             type="submit"

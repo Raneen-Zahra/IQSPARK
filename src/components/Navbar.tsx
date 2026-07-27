@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Logo from './Logo';
 import MobileMenu from './MobileMenu';
+import LogoutButton from './LogoutButton';
 
 export default function Navbar() {
   return (
@@ -20,6 +21,7 @@ export default function Navbar() {
           <Link href="/profile" className="text-sm text-[var(--color-muted)] hover:text-[var(--color-yellow)] transition-colors">
             Profile
           </Link>
+          <LogoutButton />
         </div>
 
         <MobileMenu />
